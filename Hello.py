@@ -19,33 +19,24 @@ LOGGER = get_logger(__name__)
 
 
 def run():
-    st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
+  st.set_page_config(
+      page_title="Weaviate Resource Calculator",
+      page_icon="👋",
+  )
+  # 2 * 1e6 * (256 * 4)
+  st.write("# Weaviate Resource Calculator 👋")
+  with st.form("calculate", clear_on_submit=False):
+    dimensions = st.number_input(
+      "Dimensions", key="dimension", placeholder="The number of dimensions",
+      min_value=1, max_value=10000
     )
+    calculate_submit = st.form_submit_button("calculate", use_container_width=True)
 
-    st.write("# Welcome to Streamlit! 👋")
-
-    st.sidebar.success("Select a demo above.")
-
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
-
+  if calculate_submit:
+    bytes_per1mm = 2 * 1000000 * (dimensions * 4)
+    gb_per1mm = bytes_per1mm / 1073741824
+    st.text(f"For 1 million objects with {dimensions} dimensions, you will need 2 * 1e6 * (256 * 4):")
+    st.markdown(f"## {gb_per1mm:.2f} GB")
 
 if __name__ == "__main__":
-    run()
+  run()
