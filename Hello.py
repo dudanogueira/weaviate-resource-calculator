@@ -39,7 +39,6 @@ class WeaviateResourceCalculator:
     self.real_memory_usage = object_number * self.each_vector
     self.total_memory_usage = 2 * self.real_memory_usage
     # second calculation, more accurate, using max connections
-    # 1e6 * (1536B + (64 * 10))
     self.connections_memory_usage = self.object_number * self.each_object_connections
     self.real_and_connections_memory_usage = self.real_memory_usage + self.connections_memory_usage
     pass
