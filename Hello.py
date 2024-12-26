@@ -73,7 +73,7 @@ def run():
       max_connections=max_connections
       )
     
-    st.markdown(f"Suggested [resource plan](https://weaviate.io/developers/weaviate/concepts/resources). Learn more about Weaviate")
+    st.markdown(f"Suggested [resource plan](https://weaviate.io/developers/weaviate/concepts/resources).")
     st.title(f"{calculation.total_memory_usage/1073741824:.2f} GB memory")
     st.subheader(f"for {millify(calculation.object_number)} objects with {calculation.dimensions} dimensions")
     #st.subheader("Calculation")

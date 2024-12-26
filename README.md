@@ -2,6 +2,6 @@
 
 Easily calculate the resources needed to run your Weaviate Vector Database!
 
-Based on this doc: https://weaviate.io/developers/weaviate/concepts/resources
+[LIVE DEMO](https://weaviate-resource-calculator.streamlit.app/)
 
-Live version: https://weaviate-resource-calculator.streamlit.app/
+Based on [Weaviate Resource Planing doc](https://weaviate.io/developers/weaviate/concepts/resources)
